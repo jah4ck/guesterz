@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  guesterz.front:
+    image: guesterz.front
+    build:
+      context: ./guesterz.front
+      dockerfile: Dockerfile
