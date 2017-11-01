@@ -1,8 +1,25 @@
-version: '3'
+version: "3"
 
 services:
+  guesterz.sqlserver:
+    image: microsoft/mssql-server-linux:latest
+    restart: always
+    ports: 
+      - "8888:1433"
+    environment:
+      - SA_PASSWORD=Ascpkn16!?
+      - ACCEPT_EULA=Y
+
   guesterz.front:
     image: guesterz.front
     build:
       context: ./guesterz.front
       dockerfile: Dockerfile
+    ports:
+      - "3131:80"
+    restart: always
+    depends_on:
+      - guesterz.sqlserver
+
+
+    
